@@ -25,20 +25,20 @@ class JSONPlaceholder:
         }
 
     def update_user(self, userId, title, body):
-        url = f"{self.base_url}/{userId}"
+    url = f"{self.base_url}/{userId}"
 
-        data = {
-            "title": title,
-            "body": body
-        }
+    data = {
+        "title": title,
+        "body": body
+    }
 
-        response = requests.put(url, data=data)
+    response = requests.put(url, data)
 
-        return {
-            "status_code": response.status_code,
-            "headers": dict(response.headers),
-            "content": response.content[:500]
-        }
+    return {
+        "status_code": response.status_code,
+        "headers": dict(response.headers),
+        "content": response.content[:500]
+    }
 
     def delete_user(self, user_id):
         url = f"{self.base_url}/{user_id}"
