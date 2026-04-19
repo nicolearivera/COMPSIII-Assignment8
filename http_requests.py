@@ -1,6 +1,7 @@
 # Write your code here
 import requests
 
+
 class JSONPlaceholder:
     def __init__(self, base_url):
         self.base_url = base_url
@@ -11,16 +12,16 @@ class JSONPlaceholder:
         return {
             "status_code": response.status_code,
             "headers": dict(response.headers),
-            "content": response.text[:500]
+            "content": response.content[:500]
         }
 
     def post_request(self, data):
-        response = requests.post(self.base_url, json=data)
+        response = requests.post(self.base_url, data=data)
 
         return {
             "status_code": response.status_code,
             "headers": dict(response.headers),
-            "content": response.text[:500]
+            "content": response.content[:500]
         }
 
     def update_user(self, userId, title, body):
@@ -31,12 +32,12 @@ class JSONPlaceholder:
             "body": body
         }
 
-        response = requests.put(url, json=data)
+        response = requests.put(url, data=data)
 
         return {
             "status_code": response.status_code,
             "headers": dict(response.headers),
-            "content": response.text[:500]
+            "content": response.content[:500]
         }
 
     def delete_user(self, user_id):
