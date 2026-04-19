@@ -32,7 +32,7 @@ class JSONPlaceholder:
         "body": body
     }
 
-    response = requests.put(url, data)
+    response = requests.put(url, data=data)
 
     return {
         "status_code": response.status_code,
